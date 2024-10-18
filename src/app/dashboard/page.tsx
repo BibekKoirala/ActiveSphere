@@ -1,3 +1,4 @@
+import FetchData from '@/components/AllPosts'
 import GameList from '@/components/GameList'
 import MainContainer from '@/components/MainContainer'
 import Search from '@/components/Search'
@@ -20,6 +21,7 @@ function Dashboard() {
         <MainContainer />
         <Search />
         <GameList />
+        <FetchData />
     </div>
   )
 }

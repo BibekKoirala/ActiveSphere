@@ -1,4 +1,7 @@
-import React from 'react';
+import { Games } from "@/Data";
+import React from "react";
+import { FaLocationDot } from "react-icons/fa6";
+import { SlCalender } from "react-icons/sl";
 
 type ModalProps = {
   post: {
@@ -19,24 +22,57 @@ type ModalProps = {
 const Modal: React.FC<ModalProps> = ({ post, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-lg max-w-lg w-full p-6">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold">{post.title}</h2>
-          <button
-            onClick={onClose}
-            className="text-red-500 font-bold text-xl"
-          >
-            X
-          </button>
+      <div className="bg-white rounded-lg max-w-lg w-full max-h-[90vh] overflow-y-auto relative">
+        {/* X button positioned over the image */}
+        <button
+          onClick={onClose}
+          className="absolute top-2 right-2 bg-white-800 text-white p-1 rounded-full z-50 font-extrabold font-xl"
+        >
+          X
+        </button>
+
+        {/* Post Image */}
+        <img
+          className="w-full object-cover p-2"
+          src={post.image}
+          alt={post.title}
+        />
+
+        {/* Post Content */}
+        <div className="px-4 py-4">
+          <div className="font-extrabold text-[20px] mb-2 line-clamp-2 overflow-hidden">
+            {post.title}
+          </div>
+
+          <p className="flex items-center text-orange-600 font-bold">
+            <SlCalender /> &nbsp;
+            <span>{post.date}</span>
+          </p>
+
+          <div className="flex items-center text-blue-400 mt-2">
+            <FaLocationDot />
+            <p className="ml-1">{post.location}</p>
+          </div>
+
+          <p className="text-gray-700 text-base mt-2">{post.description}</p>
         </div>
-        <img src={post.image} alt={post.title} className="mb-4" />
-        <p className="text-gray-700 mb-2">Posted by: {post.username}</p>
-        <p className="text-gray-700 mb-2">Email: {post.email}</p>
-        <p className="text-gray-700 mb-2">Sport: {post.sport}</p>
-        <p className="text-gray-700 mb-2">Location: {post.location}</p>
-        <p className="text-gray-700 mb-2">Zipcode: {post.zipcode}</p>
-        <p className="text-gray-700 mb-2">Posted on: {post.date}</p>
-        <p className="text-gray-700 mb-2">{post.description}</p>
+
+        {/* Posted By Section */}
+        <div className="mt-5 p-2 border-t-2">
+          <div className="font-bold text-l">Posted By</div>
+
+          <div className="flex items-center mt-2">
+            <img
+              className="w-10 h-10 rounded-full mr-4"
+              src={post.profilepic}
+              alt={post.username}
+            />
+            <div>
+              <p className="text-gray-700 mb-1">{post.username}</p>
+              <p className="text-gray-700">{post.email}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

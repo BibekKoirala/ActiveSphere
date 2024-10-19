@@ -19,8 +19,10 @@ function Dashboard() {
   return (
     <div className='px-5 sm:px-7 md:px-10 mt-7'>
         <MainContainer />
+        <div className='flex flex-col items-center w-full mt-7'>
         <Search />
         <GameList />
+        </div>
         <FetchData />
     </div>
   )

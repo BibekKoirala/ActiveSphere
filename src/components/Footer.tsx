@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
 function Footer() {
   return (
-    <div>Footer</div>
-  )
+    <></>
+    // <footer className="mt-10 text-center z-10">
+    //   <p className="text-gray-300">© 2024 Active Sphere. All rights reserved.</p>
+    // </footer>
+  );
 }
 
-export default Footer
+export default Footer;

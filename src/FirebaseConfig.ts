@@ -16,7 +16,7 @@ const firebaseConfig = {
   appId: process.env.appId,
   measurementId: process.env.measurementId
 };
-console.log(firebaseConfig.projectId, process.env, 'This is project id match')
+console.log(firebaseConfig, process.env, 'This is project id match')
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);

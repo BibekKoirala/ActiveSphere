@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server"
 
 export async function middleware (req: NextRequest) {
   // If you don't have NEXTAUTH_SECRET set, you will have to pass your secret as `secret` to `getToken`
+  console.log(req)
   const token = await getToken({ req , secret: "cPZyRbRKx0jRqLB+5STfoW+JgvzHi+/m3ajVaen6M/U="})
   console.log(token)
   if (token) {

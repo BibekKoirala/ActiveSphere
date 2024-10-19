@@ -6,8 +6,7 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 function Header() {
-  let session = useSession();
-  console.log(session);
+  const session = useSession();
 
   return (
     <div className="flex justify-between p-5 border-b-[2px] border-color-grey">

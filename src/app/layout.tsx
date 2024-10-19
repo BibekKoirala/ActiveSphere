@@ -4,9 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
-  SessionContextValue,
-  SessionProvider,
-  SessionProviderProps,
+  SessionProvider
 } from "next-auth/react";
 
 const geistSans = localFont({

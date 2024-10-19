@@ -11,7 +11,7 @@ export const Snackbar = ({
   isVisible: boolean;
   onClose: MouseEventHandler;
 }) => {
-  let mainClass = 'fixed bottom-5 right-5 bg-'+ (success?'blue':'red')+'-600 text-white px-4 py-2 rounded shadow-lg'
+  const mainClass = 'fixed bottom-5 right-5 bg-'+ (success?'blue':'red')+'-600 text-white px-4 py-2 rounded shadow-lg'
   return isVisible ? (
     <div className={mainClass}>
       {message}

@@ -143,6 +143,7 @@ export default function Post() {
                 image: null,
                 date: "",
               })
+              console.log(value)
             })
 
             console.log("File available at", downloadURL, formData);

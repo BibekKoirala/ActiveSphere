@@ -60,7 +60,7 @@ const FetchData = ({searchText, selectedSport}: {searchText: string, selectedSpo
     setFilteredPosts(newPost)
     return
   }
-  let gamesel = Games.find((val)=> val.id === selectedSport)?.name
+  const gamesel = Games.find((val)=> val.id === selectedSport)?.name
     newPost = newPost.filter(post=>
       post.sport === gamesel
     )

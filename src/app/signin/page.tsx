@@ -12,18 +12,19 @@ export default async function SignInPage(props: {
       
       {Object.values(providerMap).map((provider) => (
         <form
+        key={provider.id}
           action={async () => {
             "use server"
             try {
               await signIn(provider.id, {
-                redirectTo: '/dashboard',
+                redirectTo: "/dashboard",
               })
             } catch (error) {
               // Signin can fail for a number of reasons, such as the user
               // not existing, or the user not having the correct role.
               // In some cases, you may want to redirect to a custom error
               if (error instanceof AuthError) {
-                return redirect(`/`)
+                return redirect("/")
               }
  
               // Otherwise if a redirects happens Next.js can handle it

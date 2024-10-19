@@ -34,7 +34,7 @@ type Post = {
 };
 
 function ProfilePage() {
-  let session = useSession();
+  const session = useSession();
   const [posts, setPosts] = useState<Post[]>([]);
   const [progress, setProgress] = useState(0);
   const [snackbar, setSnackbar] = useState({ isVisible: false, message: '', success: false });
@@ -48,7 +48,7 @@ function ProfilePage() {
         where("email", "==", session.data?.user?.email || "")
       );
       getDocs(myPosts).then((val) => {
-        let fin: Post[] = [];
+        const fin: Post[] = [];
         val.forEach((res) => {
           fin.push({ ...res.data(), id: res.id } as Post);
         });

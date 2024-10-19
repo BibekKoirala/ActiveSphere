@@ -137,7 +137,7 @@ function ProfilePage() {
             </div>
           ))}
           {
-            posts.length ===0 &&  <p className="text-gray-600">You haven't posted anything yet!</p>
+            posts.length ===0 &&  <p className="text-gray-600">You haven&apos;t posted anything yet!</p>
           }
         </div>
 

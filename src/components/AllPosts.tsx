@@ -2,9 +2,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
-import { app } from '@/firebase/FirebaseConfig'; // Import your Firebase setup
+import { app } from '@/FirebaseConfig'; // Import your Firebase setup
 import Card from './Card'; // Import the Card component
 import Modal from './Modal';
+import { Games } from '@/Data';
 
 const db = getFirestore(app);
 
@@ -23,8 +24,9 @@ type Post = {
   zipcode: string;
 };
 
-const FetchData: React.FC = () => {
+const FetchData = ({searchText, selectedSport}: {searchText: string, selectedSport: number}) => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [filteredposts, setFilteredPosts] = useState<Post[]>([]);
   const [selectedPost, setSelectedPost] = useState<Post | null>(null); // State to store the selected post
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility state
 
@@ -39,7 +41,7 @@ const FetchData: React.FC = () => {
         ...doc.data(),
       })) as Post[];
       setPosts(postsList);
-
+      setFilteredPosts(postsList)
     };
 
     fetchPosts();
@@ -50,15 +52,34 @@ const FetchData: React.FC = () => {
     setIsModalOpen(true); // Open the modal
   };
 
+  useEffect(()=>{
+    let newPost = posts.filter(post =>
+      post.zipcode.includes(searchText)
+  )
+  if (selectedSport === 0) {
+    setFilteredPosts(newPost)
+    return
+  }
+  let gamesel = Games.find((val)=> val.id === selectedSport)?.name
+    newPost = newPost.filter(post=>
+      post.sport === gamesel
+    )
+  setFilteredPosts(newPost)
+  
+  }, [searchText, selectedSport])
+
   const handleCloseModal = () => {
     setIsModalOpen(false); // Close the modal
   };
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
-      {posts.map((post) => (
+      {filteredposts.map((post) => (
         <div key={post.id} onClick={() => handleCardClick(post)}>
           <Card
+          id={post.id}
+          deleteBol={false}
+          deleteData={null}
             title={post.title}
             username={post.username}
             sport={post.sport}

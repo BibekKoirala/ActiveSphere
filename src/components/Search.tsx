@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 
-function Search() {
-  const [searchText, setSearchText] = useState("");
+function Search({ searchText, handleSearchTextChange}: {searchText: string, handleSearchTextChange: (e:  React.ChangeEvent<HTMLInputElement>)=>void}) {
+  
   return (
     <div className="w-full max-w-lg mx-auto">
       <label
@@ -31,7 +31,7 @@ function Search() {
         </div>
         <input
           value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
+          onChange={(e) => handleSearchTextChange(e)}
           type="search"
           id="default-search"
           className="block w-full p-4 ps-10 text-lg text-gray-900 border border-gray-300 rounded-lg bg-white-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-900 dark:text-gray dark:focus:ring-blue-500 dark:focus:border-blue-500"

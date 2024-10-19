@@ -3,7 +3,7 @@ import Card from "@/components/Card";
 import FullScreenLoader from "@/components/FullScreenLoader";
 import Modal from "@/components/Modal";
 import { Snackbar } from "@/components/SnackBar";
-import { app } from "@/firebase/FirebaseConfig";
+import { app } from "@/FirebaseConfig";
 import {
   collection,
   deleteDoc,

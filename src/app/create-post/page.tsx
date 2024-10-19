@@ -9,7 +9,7 @@ import {
   uploadBytes,
   uploadBytesResumable,
 } from "firebase/storage";
-import { app } from "@/firebase/FirebaseConfig";
+import { app } from "@/FirebaseConfig";
 import { useSession } from "next-auth/react";
 import FullScreenLoader from "@/components/FullScreenLoader";
 import { addDoc, collection, doc, documentId, getFirestore, setDoc } from "firebase/firestore";

@@ -1,5 +1,10 @@
 const Games=[
     {
+        id: 0,
+        name: 'All',
+        image: './images/Pasted image.png'
+    },
+    {
         id:1,
         name:'Cricket',
         image:'./images/CricketBall.png'

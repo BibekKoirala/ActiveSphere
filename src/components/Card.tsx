@@ -16,7 +16,7 @@ type CardProps = {
   zipcode: string;
   email: string;
   deleteBol: boolean;
-  deleteData: (imageUrl: string, documentId: string) => Promise<void> | null;
+  deleteData: ((imageUrl: string, documentId: string) => Promise<void>) | null;
 
 };
 

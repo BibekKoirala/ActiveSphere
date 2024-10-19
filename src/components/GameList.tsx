@@ -1,14 +1,15 @@
 import React from "react";
 import { Games } from "@/Data";
 
-function GameList() {
+function GameList({selectedSport, handleSportSelect}: {selectedSport: number, handleSportSelect: (id: number)=>void}) {
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 mt-4">
+    <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 mt-4">
       {Games.map((val: GameType) => {
         return (
           <div
             key={val.id}
             className="flex flex-col items-center cursor-pointer "
+            onClick={()=>handleSportSelect(val.id)}
           >
             <img
               src={val.image}

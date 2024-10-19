@@ -57,7 +57,7 @@ const Card: React.FC<CardProps> = ({
         </p>
       </div>
       {
-        deleteBol && <div className="px-4 pb-2"> <button onClick={()=>deleteData(image, id)} className="bg-red-500 text-white px-4 py-2 rounded flex items-center w-full justify-center">
+        deleteBol && <div className="px-4 pb-2"> <button onClick={()=>deleteData?deleteData(image, id):null} className="bg-red-500 text-white px-4 py-2 rounded flex items-center w-full justify-center">
         Delete
        <BiTrash />
       </button></div>

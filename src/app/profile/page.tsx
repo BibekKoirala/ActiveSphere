@@ -71,15 +71,23 @@ function ProfilePage() {
       await deleteObject(imageRef);
   
       // Delete the document from Firestore
+    } catch (error) {
+      console.error("Error deleting image:", error);
+    }
+
+    try{
       await deleteDoc(doc(db, "Posts", documentId)); // Adjust "Posts" to your collection name
       setProgress(100)
       
       setPosts(posts.filter(post=> post.id != documentId))
       setSnackbar({ isVisible: true, message: 'Post deleted successfully', success: true });
       setLoading(false)
-    } catch (error) {
-      console.error("Error deleting image and document:", error);
     }
+    catch(error) {
+      console.error("Error deleting document:", error);
+
+    }
+    setLoading(false)
   };
   
 

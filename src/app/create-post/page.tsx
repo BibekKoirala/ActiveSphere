@@ -128,7 +128,7 @@ export default function Post() {
         },
         async () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            await addDoc(collection(db, 'Posts'), {...formData, image: downloadURL, username: session.data.user?.name, email: session.data.user?.email, profilepic: session.data.user?.image, dateCreated: new Date().toLocaleString()}).then((value)=>{
+            await addDoc(collection(db, 'Posts'), {...formData, image: downloadURL, username: session.data.user?.name, email: session.data.user?.email, profilepic: session.data.user?.image, dateCreated: new Date().toLocaleString()}).then(()=>{
               setLoading(false)
               setSnackbar({ isVisible: true, message: "Upload Success!", success: true });
               setFormData({

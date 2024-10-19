@@ -5,14 +5,12 @@ import React, { useState } from "react";
 import {
   getDownloadURL,
   getStorage,
-  ref,
-  uploadBytes,
-  uploadBytesResumable,
+  ref, uploadBytesResumable
 } from "firebase/storage";
 import { app } from "@/FirebaseConfig";
 import { useSession } from "next-auth/react";
 import FullScreenLoader from "@/components/FullScreenLoader";
-import { addDoc, collection, doc, documentId, getFirestore, setDoc } from "firebase/firestore";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { Snackbar } from "@/components/SnackBar";
 
 const storage = getStorage(app);

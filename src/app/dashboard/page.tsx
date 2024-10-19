@@ -3,8 +3,7 @@ import FetchData from '@/components/AllPosts'
 import GameList from '@/components/GameList'
 import MainContainer from '@/components/MainContainer'
 import Search from '@/components/Search'
-import { useSession } from 'next-auth/react'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 // import { getFirestore } from 'firebase/firestore'
 // import { app } from '@/firebase/FirebaseConfig'
 
@@ -31,7 +30,7 @@ function Dashboard() {
         <MainContainer />
         <div className='flex flex-col items-center w-full mt-7'>
         <Search searchText={searchText} handleSearchTextChange={handleSearchTextChange} />
-        <GameList selectedSport= {selectedSport} handleSportSelect={handleSportSelect} />
+        <GameList handleSportSelect={handleSportSelect} />
         </div>
         <FetchData searchText = {searchText} selectedSport={selectedSport}/>
     </div>

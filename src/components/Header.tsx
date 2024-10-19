@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import logo from "@/images/Logo.png";
 import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { IoIosLogIn } from "react-icons/io";
 import { signOut, useSession } from "next-auth/react";

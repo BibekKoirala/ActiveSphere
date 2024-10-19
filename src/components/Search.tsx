@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
 function Search({ searchText, handleSearchTextChange}: {searchText: string, handleSearchTextChange: (e:  React.ChangeEvent<HTMLInputElement>)=>void}) {
   

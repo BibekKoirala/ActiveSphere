@@ -1,7 +1,6 @@
 "use client";
 import Card from "@/components/Card";
 import FullScreenLoader from "@/components/FullScreenLoader";
-import Modal from "@/components/Modal";
 import { Snackbar } from "@/components/SnackBar";
 import { app } from "@/FirebaseConfig";
 import {
@@ -15,9 +14,8 @@ import {
 } from "firebase/firestore";
 import { deleteObject, getStorage, ref } from "firebase/storage";
 import { useSession } from "next-auth/react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-const storage = getStorage(app);
 const db = getFirestore(app);
 
 type Post = {
@@ -38,8 +36,6 @@ type Post = {
 function ProfilePage() {
   let session = useSession();
   const [posts, setPosts] = useState<Post[]>([]);
-  const [selectedPost, setSelectedPost] = useState<Post | null>(null); // State to store the selected post
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility state
   const [progress, setProgress] = useState(0);
   const [snackbar, setSnackbar] = useState({ isVisible: false, message: '', success: false });
   const [loading, setLoading] = useState(false);
@@ -89,13 +85,13 @@ function ProfilePage() {
   };
   
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false); // Close the modal
-  };
-  const handleCardClick = (post: Post) => {
-    setSelectedPost(post); // Set the selected post
-    setIsModalOpen(true); // Open the modal
-  };
+  // const handleCloseModal = () => {
+  //   setIsModalOpen(false); // Close the modal
+  // };
+  // const handleCardClick = (post: Post) => {
+  //   setSelectedPost(post); // Set the selected post
+  //   setIsModalOpen(true); // Open the modal
+  // };
   return (
     <div className="min-h-screen bg-gray-100 py-10">
       {loading && <FullScreenLoader progress={progress} />}
@@ -122,7 +118,7 @@ function ProfilePage() {
         {/* <h2 className="text-2xl font-semibold mb-4">Your Posts</h2> */}
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 p-4">
           {posts.map((post) => (
-            <div key={post.id} onClick={() => handleCardClick(post)}>
+            <div key={post.id} onClick={() => null}>
               <Card
                 title={post.title}
                 username={post.username}

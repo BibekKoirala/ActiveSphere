@@ -1,4 +1,3 @@
-import { Games } from "@/Data";
 import React from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { SlCalender } from "react-icons/sl";

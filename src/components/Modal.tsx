@@ -44,7 +44,7 @@ const Modal: React.FC<ModalProps> = ({ post, onClose }) => {
           </div>
 
           <p className="flex items-center text-orange-600 font-bold">
-            <SlCalender /> 
+            <SlCalender /> &nbsp;
             <span>{post.date}</span>
           </p>
 

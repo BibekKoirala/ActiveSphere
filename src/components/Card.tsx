@@ -43,7 +43,7 @@ const Card: React.FC<CardProps> = ({
         </div>
 
         <p className="flex items-center text-orange-600 font-bold">
-          <SlCalender /> &nbsp;
+          <SlCalender /> 
           <span>{date}</span>
         </p>
 

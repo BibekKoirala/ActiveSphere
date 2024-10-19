@@ -2,9 +2,7 @@ import { redirect } from "next/navigation"
 import { signIn, providerMap } from "@/auth"
 import { AuthError } from "next-auth"
  
-export default async function SignInPage(props: {
-  searchParams: { callbackUrl: string | undefined }
-}) {
+export default async function SignInPage() {
   return (
     <div className="flex flex-col gap-2">
        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-purple-600 text-white">

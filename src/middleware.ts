@@ -4,14 +4,14 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function middleware(req: NextRequest) {
   // If you don't have NEXTAUTH_SECRET set, you will have to pass your secret as `secret` to `getToken`
-  console.log(req);
-  const cookie = cookies()
-  console.log(cookie.get(process.env.VERCEL_ENV === "development"
-    ? "authjs.session-token"
-    : "__Secure-authjs.session-token"))
+  // console.log(req);
+  // const cookie = cookies()
+  // console.log(cookie.get(process.env.VERCEL_ENV === "development"
+  //   ? "authjs.session-token"
+  //   : "__Secure-authjs.session-token"))
   const token = await getToken({
     req,
-    secret: "cPZyRbRKx0jRqLB+5STfoW+JgvzHi+/m3ajVaen6M/U=",
+    secret: process.env.AUTH_SECRET,
     cookieName:
       process.env.VERCEL_ENV === "development"
         ? "authjs.session-token"

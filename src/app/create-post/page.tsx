@@ -115,13 +115,10 @@ export default function Post() {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           setProgress(progress);
-          console.log("Upload is " + progress + "% done");
           switch (snapshot.state) {
             case "paused":
-              console.log("Upload is paused");
               break;
             case "running":
-              console.log("Upload is running");
               break;
           }
         },
@@ -143,10 +140,8 @@ export default function Post() {
                 image: null,
                 date: "",
               })
-              console.log(value)
             })
 
-            console.log("File available at", downloadURL, formData);
           });
         }
       );

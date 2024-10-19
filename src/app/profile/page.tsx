@@ -69,11 +69,9 @@ function ProfilePage() {
       // Delete the image from Firebase Storage
       const imageRef = ref(storage, fileName?.replaceAll('%20', ' '))
       await deleteObject(imageRef);
-      console.log(`Image ${fileName} deleted successfully from Storage.`);
   
       // Delete the document from Firestore
       await deleteDoc(doc(db, "Posts", documentId)); // Adjust "Posts" to your collection name
-      console.log(`Document with ID ${documentId} deleted successfully from Firestore.`);
       setProgress(100)
       
       setPosts(posts.filter(post=> post.id != documentId))
